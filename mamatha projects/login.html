@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'jost', sans-serif;
+            /* background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
+       background-image: url(https://img.freepik.com/premium-photo/photo-school-stationery-items-education-background-books-with-color-pencils_763111-152604.jpg); 
+       background-repeat: no-repeat;
+       background-size: cover;
+            
+        }
+        .main {
+            width: 350px;
+            height: 500px;
+            background: #1abc9c;
+            overflow: hidden;
+            background: url("") no-repeat / cover;
+            border-radius: 10px;
+            box-shadow: 5px 20px 50px #000;
+        }
+        #chk {
+            display: none;
+        }
+        .signup {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        label {
+            color: white;
+            font-size: 2.3em;
+            justify-content: center;
+            display: flex;
+            margin: 60px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+        }
+        input {
+            width: 60%;
+            height: 20px;
+            background: white;
+            justify-content: center;
+            display: flex;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        button {
+            width: 40%;
+            height: 35px;
+            margin: 10px auto;
+            justify-content: center;
+            display: block;
+            color: white;
+            background: #573b8e;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #573b8e;
+        }
+        .login {
+            height: 460px;
+            background: white;
+            border-radius: 60% / 10%;
+            transform: translateY(-180px);
+            transition: .8s ease-in-out;
+        }
+        .login label {
+            color: #573b8e;
+            transform: scale(.6);
+        }
+        #chk:checked ~ .login {
+            transform: translateY(-500px);
+        }
+        #chk:checked ~ .login label {
+            transform: scale(1);
+        }
+        #chk:checked ~ .signup label {
+            transform: scale(.6);
+        }
+        .error {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form>
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" name="user name" placeholder="User name" required>
+                <input type="email" name="email" placeholder="email" required>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+        <span id="form" class="error"></span>
+        <div class="login">
+            <form id="loginform" class="loginform">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="text" id="userId" name="userId" placeholder="User ID" required>
+                <input type="password" id="login-password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginform').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('form').textContent = '';
+            const userId = document.getElementById('userId').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+            if (userId === '') {
+                document.getElementById('form').textContent = 'User ID is required.';
+                return;
+            }
+            if (password === '') {
+                document.getElementById('form').textContent = 'Password is required.';
+                return;
+            }
+            if (userId === 'mamatha' && password === 'Mamatha@123') {
+                window.location.href = 'home.html';
+            } else {
+               alert('Invalid User ID or Password.')
+            }
+        });
+    </script>
+</body>
+</html>
+ 

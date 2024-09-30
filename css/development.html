@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ *{
+    font-family:Arial,Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.home-content{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    background-image: url(tree2.png);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.left{
+ width:50%;
+ color:white;
+ margin-left: 50px;
+}
+.heading{
+    font-size: 60px;
+    font-weight: 700;
+}
+.orange-txt{
+    color: orange;
+}
+.home-paragraph{
+    width:500px;
+    margin-top: 30px;
+    font-family:Arial,Verdana, sans-serif;
+}
+.btn{
+    margin-top: 20px;
+    width:150px;
+    background-color: orange;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 20px;
+}
+.right{
+    background-color: rgba(45, 45,45, .7); 
+    width:300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    right: 10%;
+   margin-right: 300px;
+}
+.login-box{
+   margin: 30px 0;
+}
+.login-head{
+    background-color: white;
+    color: orange;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 20px;
+    padding:10px;
+}
+.login-box input{
+    width: 200px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    border-bottom:  2px solid orange;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+.login-btn{
+    background-color: orange;
+    width:200px;
+    margin-top: 20px;
+    padding: 2px;
+    font-size: 18px;
+    font-weight: 500;
+    font-weight: 600;
+    border:none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+   padding:10px;
+}
+.login-text{
+    color: white;
+    margin-top: 20px;
+}
+.login-text a{
+    color:aqua;
+    text-decoration: none;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="home-content">
+        <div class="left">
+        <p class="heading"> Learn complete<br>               
+            <span class="orange-txt">web development</span><br>
+            course </p>
+        <p class="home-paragraph">
+            this course break down html form into easy to understand pieces.over<br>
+            the next few modules,you"ll learn how an html form works and how to use
+            them effectively in your projects.
+        </p>
+        <button class="btn">know more</button>
+    </div>
+
+    <div class="right">
+        <div class="login-box">
+          
+            <p class="login-head">login now</p>
+            <input type="text" placeholder="enter email or user name"><br>
+            <input type="password" placeholder="password"><br>
+            <button class="login-btn">login</button>
+            <div>
+                <p class="login-text">Don't have account? <br>
+                <a href="">Create new account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+     
+</body>
+</html>

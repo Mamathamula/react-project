@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+    
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <!---google fonts-->
+ <link
+     href="
+https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+     rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+        
+            background: #68bb59;
+            padding: 20px;
+        }
+
+        
+        .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.note-event {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+.heading-text {
+    color: #064727;
+    font-size: 28px;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+.heading-border {
+    background-color: #ffc600;
+    display: inline-block;
+    height: 3px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+.notice-board {
+    border: 5px solid #ffa38e;
+    background-color: #2a692a;
+    color: white;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.notice-board ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    animation: scroll-up 10s linear infinite;
+}
+.notice-board ul li {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+@keyframes scroll-up {
+    0% { top: 100%; }
+    100% { top: -100%; }
+}
+.event-marquee {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+}
+.event-marquee-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    animation: scroll-up 15s linear infinite;
+}
+.event-list {
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.event-date {
+    width: 80px;
+    text-align: center;
+    background: #76c568;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.event-date p {
+    font-weight: 400;
+    margin: 0;
+}
+.event-date h4 {
+    font-size: 28px;
+    margin: 0;
+}
+.event-content {
+    flex: 1;
+}
+.event-content h3 {
+    margin: 0;
+}
+@keyframes scroll-up {
+    0% { top: 100%; }
+    100% { top: -100%; }
+}
+ 
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+@media(max-width: 768px)
+{
+.header-social-icon{
+    display:none;
+}
+}
+nav{
+    background: #fff;
+    box-shadow: 1px 1px 2px #4444;
+}
+nav .navbar-brand{
+    color:var( --bs-orange)!important;
+    font-size: 30px;
+}
+.navbar-nav .nav-link{
+    font-size: 25px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
+.navbar-toggler{
+    outline: none!important;
+    padding: none!important;
+}
+
+        .header-section {
+            padding: 20px 0 40px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .header-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .header-section p {
+            font-size: 20px;
+            color: #f0f0f0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards Section */
+        .cards-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 30px 0;
+        }
+
+        .card {
+            max-width: 300px;
+            height: 215px;
+            background: #fff;
+            margin: 15px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, height 0.3s ease;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            height: 300px;
+        }
+
+        .card .imgBx {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .card .imgBx img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card .content {
+            text-align: center;
+            color: #111;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease, margin-top 0.3s ease;
+        }
+
+        .card:hover .content {
+            visibility: visible;
+            opacity: 1;
+            margin-top: 10px;
+        }
+
+        .card .content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #5f2a5e;
+        }
+
+        .card .content p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Timetable and BMI Calculator Section */
+        .additional-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .timetable, .calculator {
+            flex: 1 1 400px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timetable {
+            background-color: #f7f7f7;
+        }
+
+        .timetable h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #5f2a5e;
+            font-weight: 600;
+            font-size: 28px;
+        }
+
+        .timetable table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .timetable th, .timetable td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        .timetable th {
+            background-color: #5f2a5e;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .calculator {
+            background-color: #5f2a5e;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .calculator h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .calculator form {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calculator input {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .calculator input::placeholder {
+            color: #aaa;
+        }
+
+        .calculator input[type="submit"] {
+            background-color: #9a7bf2;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .calculator input[type="submit"]:hover {
+            background-color: #fec045;
+        }
+
+        /* Result Popup */
+        .result-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #312222;
+            padding: 50px 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .result-popup .bmi-score {
+            width: 120px;
+            height: 120px;
+            background-color: #5254ce;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: #fff;
+            font-weight: 600;
+            border: 5px solid #fff;
+        }
+
+        .result-popup .bmi-text {
+            background-color: #fff;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .result-popup .close-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .cards-container, .additional-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timetable, .calculator {
+                padding: 20px;
+            }
+
+            .timetable h2, .calculator h2 {
+                font-size: 24px;
+            }
+
+            .result-popup {
+                width: 90%;
+                padding: 40px 20px;
+            }
+        }
+        /* main css */
+        body {
+            font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f9f9f9; */
+}
+.main-section {
+    padding: 20px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.note-event {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+.heading-text {
+    color: #064727;
+    font-size: 28px;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+.heading-border {
+    background-color: #ffc600;
+    display: inline-block;
+    height: 3px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+.notice-board {
+    border: 5px solid #ffa38e;
+    background-color: #2a692a;
+    color: white;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.notice-board ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    animation: scroll-up 10s linear infinite;
+}
+.notice-board ul li {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+@keyframes scroll-up {
+    0% { top: 100%; }
+    100% { top: -100%; }
+}
+.event-marquee {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+}
+.event-marquee-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    animation: scroll-up 15s linear infinite;
+}
+.event-list {
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.event-date {
+    width: 80px;
+    text-align: center;
+    background: #76c568;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.event-date p {
+    font-weight: 400;
+    margin: 0;
+}
+.event-date h4 {
+    font-size: 28px;
+    margin: 0;
+}
+.event-content {
+    flex: 1;
+}
+.event-content h3 {
+    margin: 0;
+}
+@keyframes scroll-up {
+    0% { top: 100%; }
+    100% { top: -100%; }
+}
+ 
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+@media(max-width: 768px)
+{
+.header-social-icon{
+    display:none;
+}
+}
+nav{
+    background: #fff;
+    box-shadow: 1px 1px 2px #4444;
+}
+nav .navbar-brand{
+    color:var( --bs-orange)!important;
+    font-size: 30px;
+}
+.navbar-nav .nav-link{
+    font-size: 25px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
+.navbar-toggler{
+    outline: none!important;
+    padding: none!important;
+}
+.carousel-inner .carousel-item{
+    width:100%;
+    height:100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ 
+}
+.carousel-inner .carousel-item::before{
+    content: '';
+    background-color: rgba(12, 11, 10, 0.5);
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.carousel-inner .carousel-caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:37%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.carousel-inner .carousel-caption span{
+    color:var( --bs-orange)!important;
+}
+.carousel-inner .carousel-caption h2{
+    color:white;
+   
+    font-size: 42px;
+    font-weight: 600;
+    width:80%;
+    margin: 0px auto 10px auto;
+}
+.carousel-inner .carousel-caption p{
+ 
+    font-size: 10px;
+    width:80%;
+    margin:0px auto 20px auto;
+}
+@media(max-width:768px)
+{
+ .carousel-inner .carousel-caption h2{
+        font-size: 38px;
+    }
+}
+@media(max-width:577px)
+{
+    .carousel-inner .carousel-caption h2{
+           font-size: 25px;
+       }
+       .carousel-inner .carousel-caption p{
+        font-size: 13px;
+    }
+   }
+   /* Gallery CSS Starts */
+.gallery {
+    padding: 20px;
+    text-align: center;
+}
+ 
+.gallery .heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+ 
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+ 
+.gallery-grid img {
+    width: calc(25% - 10px); /* 4 images per row with a gap */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* Rounded corners for a polished look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.gallery-grid img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+ 
+@media (max-width: 768px) {
+    .gallery-grid img {
+        width: calc(50% - 10px); /* 2 images per row on smaller screens */
+    }
+}
+ 
+@media (max-width: 480px) {
+    .gallery-grid img {
+        width: calc(100% - 10px); /* 1 image per row on very small screens */
+    }
+}
+/* Gallery CSS Ends */
+ 
+ 
+.footer-section {
+            background-color: #1abc9c;
+            padding: 70px 0;
+            color: #fff;
+        }
+ 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+ 
+        .footer-link {
+            padding: 0 15px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+ 
+        .footer-link h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+ 
+        .footer-link p {
+            color: #fff;
+            line-height: 20px;
+        }
+ 
+        .social-icon {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+        }
+ 
+        .social-icon li {
+            margin-right: 10px;
+        }
+ 
+        .social-icon li a {
+            color: #fff;
+            font-size: 20px; /* Adjusted size for better fit */
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #333; /* Default background for icons */
+            transition: background 0.3s, transform 0.3s;
+        }
+ 
+        .social-icon li a:hover {
+            transform: scale(1.1);
+        }
+ 
+        .social-icon .fa-twitter {
+            background: #1da1f2;
+        }
+ 
+        .social-icon .fa-whatsapp {
+            background: #25d366;
+        }
+ 
+        .social-icon .fa-facebook {
+            background: #1877f2;
+        }
+ 
+        .social-icon .fa-linkedin {
+            background: #0077b5;
+        }
+ 
+        .footer-menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+ 
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+ 
+        .footer-menu li a i {
+            margin-right: 10px;
+        }
+ 
+        .footer-contact {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+ 
+        .footer-contact li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-contact i {
+            margin-right: 10px;
+        }
+ 
+        .newsletter p {
+            margin-bottom: 10px;
+        }
+ 
+        .newsletter input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Added margin for better spacing */
+        }
+ 
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: gold;
+            color: #000;
+            cursor: pointer;
+        }
+ 
+        @media (max-width: 768px) {
+            .footer-link {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+        }
+ 
+
+        .footer-section {
+            background-color: #1abc9c;
+            padding: 70px 0;
+            color: #fff;
+        }
+ 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+ 
+        .footer-link {
+            padding: 0 15px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+ 
+        .footer-link h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+ 
+        .footer-link p {
+            color: #fff;
+            line-height: 20px;
+        }
+ 
+        .social-icon {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+        }
+ 
+        .social-icon li {
+            margin-right: 10px;
+        }
+ 
+        .social-icon li a {
+            color: #fff;
+            font-size: 20px; /* Adjusted size for better fit */
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #333; /* Default background for icons */
+            transition: background 0.3s, transform 0.3s;
+        }
+ 
+        .social-icon li a:hover {
+            transform: scale(1.1);
+        }
+ 
+        .social-icon .fa-twitter {
+            background: #1da1f2;
+        }
+ 
+        .social-icon .fa-whatsapp {
+            background: #25d366;
+        }
+ 
+        .social-icon .fa-facebook {
+            background: #1877f2;
+        }
+ 
+        .social-icon .fa-linkedin {
+            background: #0077b5;
+        }
+ 
+        .footer-menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+ 
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+ 
+        .footer-menu li a i {
+            margin-right: 10px;
+        }
+ 
+        .footer-contact {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+ 
+        .footer-contact li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-contact i {
+            margin-right: 10px;
+        }
+ 
+        .newsletter p {
+            margin-bottom: 10px;
+        }
+ 
+        .newsletter input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Added margin for better spacing */
+        }
+ 
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: gold;
+            color: #000;
+            cursor: pointer;
+        }
+ 
+        @media (max-width: 768px) {
+            .footer-link {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-link {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+        }
+        nav {
+            background: #1abc9c; /* Dark background for the navbar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .navbar-brand {
+            color: #ffc107; /* Bright yellow color for the brand */
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav .navbar-nav .nav-link {
+            color: #fff; /* White color for nav links */
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        nav .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Bright yellow on hover */
+        }
+
+        nav .navbar-toggler {
+            border: none;
+        }
+
+        nav .navbar-toggler:focus {
+            outline: none;
+        }
+
+        nav .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%28255, 193, 7, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+            /* Custom color for the toggler icon */
+        }
+
+        @media (max-width: 992px) {
+            nav .navbar-nav .nav-link {
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+     <!---header start -->
+ 
+     <header class="text-center  header-social-icon text-lg-start bg-primary text-white">
+        <div class="container">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
+                <!-- Left -->
+                <div class="me-5  d-lg-block">
+                    <span class="mx-2"><i class="fa fa-phone mx-1"> +141413765437</i></span>
+                    <span><i class="fa fa-calendar mx-1"></i> Mon-Fri:10:00-4:00</span>
+                </div>
+                <!-- Left -->
+ 
+                <!-- Right -->
+                <div class="ice"style='margin-left:530px;'>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-google"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        </div>
+    </header>
+    <!---header end -->
+    <!--navbar start-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand"  href="#"><h2 style="color: white;">Crazy Kid Care</h2></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contactus.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="logout.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+    <!-- Header Section -->
+    <div class="header-section">
+        <h1>Classes</h1>
+       <p>Our Day Care centres are located
+         in Kondapur and Gachibowli. Acknowledged as India’s leading 
+         preschools, we offer Day Care programmes designed to stimulate
+          young minds and foster balanced, inquisitive, confident, and caring individuals.</p>
+    </div>
+
+    <!-- Classes Cards Section -->
+    <div class="cards-container">
+        <div class="card">
+            <div class="imgBx">
+                <img src="course-1.jpg" alt="Dancing Class">
+            </div>
+            <div class="content">
+                <h2>Dancing</h2>
+                <p>
+                    Classical dancing is like being a mother. If you've never done it, you can't imagine how difficult it can be.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="course-2.webp" alt="Swim Class">
+            </div>
+            <div class="content">
+                <h2>Swim Class</h2>
+                <p>
+                    Lesson coordinator handbook for fun and effective instruction.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="course-3.jpg" alt="Computer Class">
+            </div>
+            <div class="content">
+                <h2>Computer Class</h2>
+                <p>
+                    All basic parts of computers for kids.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="course-4.jpg" alt="Sports Class">
+            </div>
+            <div class="content">
+                <h2>Sports</h2>
+                <p>
+                    Sports may be a secret ingredient to raising happy and healthy kids!
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="course-5.jpg" alt="Karate Class">
+            </div>
+            <div class="content">
+                <h2>Karate Class</h2>
+                <p>
+                    Builds self-confidence.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="course-6.jpg" alt="Painting Class">
+            </div>
+            <div class="content">
+                <h2>Painting Class</h2>
+                <p>
+                    School projects and what is being depicted might be helpful in deriving a basic meaning.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timetable and BMI Calculator Section -->
+    <div class="additional-container">
+        <!-- Timetable Section -->
+        <div class="timetable">
+            <h2>Weekly Timetable</h2>
+            <table>
+                <tr>
+                    <th>Period</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Games</td>
+                    <td>computer</td>
+                    <td>toys</td>
+                    <td>sleeping</td>
+                    <td>study</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Games</td>
+                    <td>computer</td>
+                    <td>toys</td>
+                    <td>sleeping</td>
+                    <td>study</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Games</td>
+                    <td>computer</td>
+                    <td>toys</td>
+                    <td>sleeping</td>
+                    <td>study</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Games</td>
+                    <td>computer</td>
+                    <td>toys</td>
+                    <td>sleeping</td>
+                    <td>study</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Games</td>
+                    <td>computer</td>
+                    <td>toys</td>
+                    <td>sleeping</td>
+                    <td>study</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- BMI Calculator Section -->
+        <div class="calculator">
+            <h2>BMI Calculator</h2>
+            <form id="bmi-form">
+                <input type="number" id="height" placeholder="Enter height in cm" required>
+                <input type="number" id="weight" placeholder="Enter weight in kg" required>
+                <input type="submit" value="Calculate BMI">
+            </form>
+        </div>
+    </div>
+
+    <!-- Result Popup -->
+    <div class="result-popup" id="result-popup">
+        <div class="bmi-score" id="bmi-score">0</div>
+        <div class="bmi-text" id="bmi-text">Your BMI result</div>
+        <button class="close-btn" id="close-btn">Close</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const bmiForm = document.getElementById('bmi-form');
+        const resultPopup = document.getElementById('result-popup');
+        const bmiScore = document.getElementById('bmi-score');
+        const bmiText = document.getElementById('bmi-text');
+        const closeBtn = document.getElementById('close-btn');
+
+        bmiForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (height <= 0 || isNaN(height)) {
+                alert('Please enter a valid height in centimeters.');
+                return;
+            }
+
+            if (weight <= 0 || isNaN(weight)) {
+                alert('Please enter a valid weight in kilograms.');
+                return;
+            }
+
+            const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+
+            let status = '';
+            if (bmi < 18.5) {
+                status = 'Underweight';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                status = 'Normal weight';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                status = 'Overweight';
+            } else {
+                status = 'Obese';
+            }
+
+            bmiScore.textContent = bmi;
+            bmiText.textContent = `You are ${status}.`;
+
+            resultPopup.style.display = 'block';
+
+            // Clear input fields
+            bmiForm.reset();
+        });
+
+        closeBtn.addEventListener('click', function() {
+            resultPopup.style.display = 'none';
+        });
+
+        // Close popup when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target == resultPopup) {
+                resultPopup.style.display = 'none';
+            }
+        });
+    </script>
+
+<div class="footer-section">
+    <div class="container">
+        <div class="footer-link">
+            <h2>My Global Campus</h2>
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+            <ul class="social-icon">
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-link">
+            <h2>Featured Links</h2>
+            <ul class="footer-menu">
+                <li><a href="#"><i class="fa fa-angle-right"></i> Graduation</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i> Admission</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i> Courses</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i> International</a></li>
+            </ul>
+        </div>
+        <div class="footer-link">
+            <h2>Contact Info</h2>
+            <ul class="footer-contact">
+                <li><i class="fa fa-envelope-o"></i> <span>E-MAIL: <a href="mailto:info@dezven.com" style="color: #fff;">info@dezven.com</a></span></li>
+                <li><i class="fa fa-whatsapp"></i> <span>WHATS-APP: +91 -123 456 789</span></li>
+                <li><i class="fa fa-fax"></i> <span>CONTACT NO.: +91 -123 4567890</span></li>
+                <li><i class="fa fa-globe"></i> <span>WEBSITE: <a href="https://www.dezven.com" style="color: #fff;">https://www.dezven.com</a></span></li>
+            </ul>
+        </div>
+        <div class="footer-link newsletter">
+            <h2>Newsletter</h2>
+            <p>Welcome To The Best Private University</p>
+            <input type="text" name="email" placeholder="E-mail">
+            <button>Subscribe Now</button>
+        </div>
+    </div>
+</div>
+<!---------- Footer HTML Ends ---------->
+ <!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+
+https://api.openweathermap.org/data/2.5/weather?q=hyderabad&appid=5f69788245690ac4f0278e217dcc376a

@@ -1,0 +1,20 @@
+import ReactDOM from "react-dom/client"
+const root= ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+   <>
+    <h1>react</h1>
+    <hr></hr>
+    <h2>single page application</h2>
+    <p>A content management system (CMS) is software that helps users create, <br></br>
+        manage, and modify content on a website without the need for technical <br></br>
+       knowledge. In other words, a CMS lets you build a website without needing to <br></br>
+        write code from scratch (or even know how to code at all). </p>
+   <ol>
+        <li>css</li>
+        <li>css</li>
+        <li>css</li>
+        <hr></hr>
+        </ol>
+        
+    </>
+);

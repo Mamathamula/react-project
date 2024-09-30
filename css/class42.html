@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #obox{
+            width:200px;
+            height:300px;
+            margin:auto;
+            border:2px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        .ibox{
+            width:100%;
+            background-color: brown;
+            padding:20px 0px;
+            border:2px solid black;
+            bottom: -45px;
+            position: absolute;
+            transition: all 2s;
+        }
+        #obox:hover .ibox{
+            bottom:0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="obox">
+        <div class="ibox"></div>
+    </div>
+</body>
+</html>

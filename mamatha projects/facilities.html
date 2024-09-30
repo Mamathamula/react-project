@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Facilities</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #76c568;
+        }
+ 
+        .facility-section {
+            text-align: center;
+            padding: 20px;
+        }
+ 
+        .circle1 {
+            width: 250px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #f5b7b1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .circle2 {
+            width: 250px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #abebc6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .circle3 {
+            width: 250px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #f7dc6f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .circle4 {
+            width: 250px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #d6eaf8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+ 
+ 
+        .facility1 {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px; /* Adjusted padding for better fit */
+            margin-bottom: 30px; /* Added margin-bottom to create space between rows */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .facility2 {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px; /* Adjusted padding for better fit */
+            margin-bottom: 30px; /* Added margin-bottom to create space between rows */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .facility3{
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px; /* Adjusted padding for better fit */
+            margin-bottom: 30px; /* Added margin-bottom to create space between rows */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .facility4 {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px; /* Adjusted padding for better fit */
+            margin-bottom: 30px; /* Added margin-bottom to create space between rows */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+ 
+        .facility h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+ 
+        .facility p {
+            color: #777;
+            font-size: 14px;
+        }
+ 
+        .facility-icon1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f5b7b1 ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: #fff;
+           
+        }
+        .facility-icon2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #abebc6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: #fff;
+           
+        }
+        .facility-icon3 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f7dc6f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: #fff;
+           
+        }
+        .facility-icon4 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #d6eaf8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: #fff;
+           
+        }
+       .facility1:hover{
+       background-color:  #e74c3c;
+       }
+       .facility2:hover{
+       background-color:  #27ae60;
+       }
+       .facility3:hover{
+       background-color:  #f1c40f;
+       }
+       .facility4:hover{
+       background-color:  #3498db;
+       }
+     
+ 
+ 
+        .no-gutters {
+            margin: 0;
+            padding: 0;
+        }
+        .heading-text {
+            color: #064727;
+            font-size: 28px;
+            line-height: 20px;
+        }
+        .heading-border {
+            background-color: #ffc600;
+            display: inline-block;
+            height: 3px;
+            margin: 0;
+            position: relative;
+            width: 100px;
+        }
+        .about-campus {
+            padding: 20px;
+        }
+        .about-campus p {
+            color: #65716b;
+            font-size: 16px;
+            margin-top: 15px;
+            line-height: 23px;
+        }
+        .about-campus ul {
+            list-style: none;
+            margin-top: 30px;
+            padding: 0;
+        }
+        .about-campus li {
+            color: #626262;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .about-campus li i {
+            color: #68bb59;
+        }
+        .about-year {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .about-year h3 {
+            font-size: 45px;
+            color: #68bb59;
+            line-height: 0;
+        }
+        .about-year span {
+            font-size: 40px;
+            color: #68bb59;
+            position: relative;
+            bottom: 5px;
+        }
+        .about-year h5 {
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+        .about-campus a {
+            padding: 15px;
+            border: none;
+            background-color: #68bb59;
+            color: white;
+            border-radius: 2px;
+            font-size: 14px;
+            margin-top: 25px;
+            text-decoration: none;
+        }
+        .bg-lightgrey {
+            background-color: #f0f0f0;
+        }
+        .mt-30 {
+            margin-top: 30px;
+        }
+ 
+        .footer-section {
+            background-color: #1abc9c;
+            padding: 70px 0;
+            color: #fff;
+        }
+ 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+ 
+        .footer-link {
+            padding: 0 15px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+ 
+        .footer-link h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+ 
+        .footer-link p {
+            color: #fff;
+            line-height: 20px;
+        }
+ 
+        .social-icon {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+        }
+ 
+        .social-icon li {
+            margin-right: 10px;
+        }
+ 
+        .social-icon li a {
+            color: #fff;
+            font-size: 20px; /* Adjusted size for better fit */
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #333; /* Default background for icons */
+            transition: background 0.3s, transform 0.3s;
+        }
+ 
+        .social-icon li a:hover {
+            transform: scale(1.1);
+        }
+ 
+        .social-icon .fa-twitter {
+            background: #1da1f2;
+        }
+ 
+        .social-icon .fa-whatsapp {
+            background: #25d366;
+        }
+ 
+        .social-icon .fa-facebook {
+            background: #1877f2;
+        }
+ 
+        .social-icon .fa-linkedin {
+            background: #0077b5;
+        }
+ 
+        .footer-menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+ 
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+ 
+        .footer-menu li a i {
+            margin-right: 10px;
+        }
+ 
+        .footer-contact {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+ 
+        .footer-contact li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-contact i {
+            margin-right: 10px;
+        }
+ 
+        .newsletter p {
+            margin-bottom: 10px;
+        }
+ 
+        .newsletter input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Added margin for better spacing */
+        }
+ 
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: gold;
+            color: #000;
+            cursor: pointer;
+        }
+ 
+        @media (max-width: 768px) {
+            .footer-link {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+        }
+        nav {
+            background: #1abc9c; /* Dark background for the navbar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .navbar-brand {
+            color: #ffc107; /* Bright yellow color for the brand */
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav .navbar-nav .nav-link {
+            color: #fff; /* White color for nav links */
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        nav .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Bright yellow on hover */
+        }
+
+        nav .navbar-toggler {
+            border: none;
+        }
+
+        nav .navbar-toggler:focus {
+            outline: none;
+        }
+
+        nav .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%28255, 193, 7, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+            /* Custom color for the toggler icon */
+        }
+
+        @media (max-width: 992px) {
+            nav .navbar-nav .nav-link {
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+        #navbarNav li{
+            margin-left: 6%;
+        }
+ 
+    </style>
+</head>
+ 
+<body>
+    <!---header start -->
+ 
+    <header class="text-center  header-social-icon text-lg-start bg-primary text-white">
+        <div class="container">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
+                <!-- Left -->
+                <div class="me-5  d-lg-block">
+                    <span class="mx-2"><i class="fa fa-phone mx-1"> +141413765437</i></span>
+                    <span><i class="fa fa-calendar mx-1"></i> Mon-Fri:10:00-4:00</span>
+                </div>
+                <!-- Left -->
+ 
+                <!-- Right -->
+                <div>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-google"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        </div>
+    </header>
+    <!---header end -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Crazy Kid Care</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto " >
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="course.html">Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contactus.html">Contactus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="logout.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+ 
+ <br><br>
+    <h2 style="text-align: center;">School Facilities</h2>
+    <p style="text-align: center;">Get Ready Please note that Parents who do not work in the teach park
+         can also avail of the childcare facitity as per the timings.</p>
+ 
+ 
+    <div class="container facility-section">
+        
+        <div class="row gutters-1">
+            <div class="col-md-3 col-lg-3 ">
+                <div class="facility1">
+                    <div class="facility-icon1">🚍</div>
+                    <div class="circle1">
+                        <div>
+                            <h3 class="text-danger">School Bus</h3>
+                            <p>School provides a van for kids with safy permisies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <div class="facility2">
+                    <div class="facility-icon2" >⚽</div>
+                    <div class="circle2" >
+                        <div>
+                            <h3 class="text-success">Playground</h3>
+                            <p>After completion of a school there is a extra palaytime for kids.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <div class="facility3">
+                    <div class="facility-icon3">🏠</div>
+                    <div class="circle3">
+                        <div>
+                            <h3 class="text-warning">Healthy Canteen</h3>
+                            <p>School management provides a healthy/protin food at afternoon times.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <div class="facility4">
+                    <div class="facility-icon4">📚</div>
+                    <div class="circle4 ">
+                        <div>
+                            <h3 class="text-info">Positive Learning</h3>
+                            <p>food facality maintains the total responsible of each kid.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+ 
+    <!---------- Campus Information HTML Starts --------->
+    <div class="container bg-lightgrey py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://cdn.firstcry.com/education/2022/06/04170649/1893649654.jpg" class="img-fluid mt-30" alt="Campus Image">
+            </div>
+            <div class="col-md-6">
+                <div class="about-campus">
+                    <h2 class="heading-text">Campus Information</h2>
+                    <span class="heading-border"></span>
+                    <p>Get Ready Please note that Parents who do not work in the teach park
+                        can also avail of the childcare facitity as per the timings.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><i class="fa fa-check"></i>Preschool+Daycare</li>
+                                <li><i class="fa fa-check"></i> Preschool+Lunch</li>
+                                <li><i class="fa fa-check"></i> Enrichment Program</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><i class="fa fa-check"></i> Child fridendly Space</li>
+                                <li><i class="fa fa-check"></i> Emerency Exit</li>
+                                <li><i class="fa fa-check"></i> Play Area</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="about-year">
+                                <h3>10 <span>+</span></h3>
+                                <h5>Years of Experience</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="about-year">
+                                <h3>70 <span>+</span></h3>
+                                <h5>Global Students</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="about-year">
+                                <h3>10 <span>+</span></h3>
+                                <h5>Years of Experience</h5>
+                            </div>
+                        </div>
+                    </div><br>
+                    <a href="#">Start Your Application <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <!---------- Campus Information HTML Ends --------->
+    <!-- Bootstrap JS and dependencies -->
+ 
+ 
+ 
+    <!---------- Footer HTML Starts --------->
+    <div class="footer-section">
+        <div class="container">
+            <div class="footer-link">
+                <h2>My Global Campus</h2>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+                <ul class="social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-link">
+                <h2>Featured Links</h2>
+                <ul class="footer-menu">
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Graduation</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Admission</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Courses</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> International</a></li>
+                </ul>
+            </div>
+            <div class="footer-link">
+                <h2>Contact Info</h2>
+                <ul class="footer-contact">
+                    <li><i class="fa fa-envelope-o"></i> <span>E-MAIL: <a href="mailto:info@dezven.com" style="color: #fff;">info@dezven.com</a></span></li>
+                    <li><i class="fa fa-whatsapp"></i> <span>WHATS-APP: +91 -123 456 789</span></li>
+                    <li><i class="fa fa-fax"></i> <span>CONTACT NO.: +91 -123 4567890</span></li>
+                    <li><i class="fa fa-globe"></i> <span>WEBSITE: <a href="https://www.dezven.com" style="color: #fff;">https://www.dezven.com</a></span></li>
+                </ul>
+            </div>
+            <div class="footer-link newsletter">
+                <h2>Newsletter</h2>
+                <p>Welcome To The Best Private University</p>
+                <input type="text" name="email" placeholder="E-mail">
+                <button>Subscribe Now</button>
+            </div>
+        </div>
+    </div>
+    <!---------- Footer HTML Ends ---------->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+ 

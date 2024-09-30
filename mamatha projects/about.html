@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #76c568;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 50px auto 100px;
+            color: white;
+        }
+
+        .main {
+            width: 100%;
+            min-height: 380px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .service {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 0 20px -15px black;
+            z-index: 1;
+            transition: transform .7s;
+        }
+
+        .service-logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 10px solid #76c568;
+            margin: -90px auto 0;
+            background: white;
+        }
+
+        .service-logo img {
+            width: 50px;
+            margin-top: 30px;
+        }
+
+        .service h4 {
+            height: 35px;
+            width: 80%;
+            background: white;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .service h4::before {
+            content: '';
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(to right, white, #5205f0);
+            position: absolute;
+            right: -5px;
+            top: -5px;
+            z-index: -1;
+        }
+
+        .service h4::after {
+            content: '';
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(to right, #5205f0, white);
+            position: absolute;
+            left: -5px;
+            bottom: -5px;
+            z-index: -1;
+        }
+
+        .shadow1 {
+            height: 200px;
+            width: 80%;
+            background: white;
+            position: absolute;
+            border-radius: 10px;
+            bottom: 0;
+            left: 10%;
+            z-index: -1;
+            box-shadow: 0 0 20px -15px black;
+            transition: transform .7s;
+        }
+
+        .shadow2 {
+            height: 200px;
+            width: 64%;
+            background: white;
+            position: absolute;
+            border-radius: 10px;
+            bottom: 0;
+            left: 18%;
+            z-index: -2;
+        }
+
+        .service:hover {
+            transform: translateY(-50px);
+            margin-top: 40px;
+        }
+
+        .shadow1, .shadow2:hover {
+            transform: translateY(-25px);
+        }
+
+        .about-us img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .about-us .image-column {
+            padding: 0;
+        }
+
+        .about-us .text-column {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .container-fluid {
+            padding: 0;
+            background-color: white;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .service-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .service-logo img {
+                width: 40px;
+            }
+
+            .service h4 {
+                width: 90%;
+            }
+    .service {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 0 20px -15px black;
+            z-index: 1;
+            transition: transform .7s;
+        }
+            .shadow1, .shadow2 {
+                width: 90%;
+                height: 150px;
+            }
+
+            .shadow2 {
+                left: 5%;
+                width: 80%;
+            }
+
+            .main {
+                min-height: 300px;
+            }
+
+            .about-us .text-column {
+                padding: 10px;
+            }
+
+            .about-us .image-column {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .service-logo img {
+                width: 30px;
+            }
+
+            .service h4 {
+                width: 100%;
+            }
+
+            .shadow1, .shadow2 {
+                width: 100%;
+                height: 120px;
+            }
+
+            .shadow2 {
+                left: 0;
+            }
+
+            .main {
+                min-height: 250px;
+            }
+
+            .about-us .text-column {
+                padding: 5px;
+            }
+        }
+
+        /* footer */
+        .footer-section {
+            background-color: #1abc9c;
+            padding: 70px 0;
+            color: #fff;
+        }
+
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-link {
+            padding: 0 15px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+
+        .footer-link h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-link p {
+            color: #fff;
+            line-height: 20px;
+        }
+
+        .social-icon {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+        }
+
+        .social-icon li {
+            margin-right: 10px;
+        }
+
+        .social-icon li a {
+            color: #fff;
+            font-size: 20px; /* Adjusted size for better fit */
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #333; /* Default background for icons */
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-icon li a:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon .fa-twitter {
+            background: #1da1f2;
+        }
+
+        .social-icon .fa-whatsapp {
+            background: #25d366;
+        }
+
+        .social-icon .fa-facebook {
+            background: #1877f2;
+        }
+
+        .social-icon .fa-linkedin {
+            background: #0077b5;
+        }
+
+        .footer-menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+
+        .footer-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-menu li a i {
+            margin-right: 10px;
+        }
+
+        .footer-contact {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .footer-contact li {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+        }
+
+        .newsletter p {
+            margin-bottom: 10px;
+        }
+
+        .newsletter input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Added margin for better spacing */
+        }
+
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: gold;
+            color: #000;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .footer-link {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /********** Footer CSS Ends **********/
+        nav {
+            background: #1abc9c; /* Dark background for the navbar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .navbar-brand {
+            color: #ffc107; /* Bright yellow color for the brand */
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav .navbar-nav .nav-link {
+            color: #fff; /* White color for nav links */
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        nav .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Bright yellow on hover */
+        }
+
+        nav .navbar-toggler {
+            border: none;
+        }
+
+        nav .navbar-toggler:focus {
+            outline: none;
+        }
+
+        nav .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%28255, 193, 7, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+            /* Custom color for the toggler icon */
+        }
+
+        @media (max-width: 992px) {
+            nav .navbar-nav .nav-link {
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+        #navbarNav li{
+            margin-left: 6%;
+        }
+    </style>
+</head>
+<body>
+    <!---header start -->
+
+    <header class="text-center  header-social-icon text-lg-start bg-primary text-white">
+        <div class="container">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-2 border-bottom">
+                <!-- Left -->
+                <div class="me-5  d-lg-block">
+                    <span class="mx-2"><i class="fa fa-phone mx-1"> +141413765437</i></span>
+                    <span><i class="fa fa-calendar mx-1"></i> Mon-Fri:10:00-4:00</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-google"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="" class="me-4 text-reset">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        </div>
+    </header>
+    <!---header end -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Crazy Kid Care</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto " style="margin-left: 240px;">
+                    <li class="nav-item mx-3 ">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="course.html">Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contactus.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="logout.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand"  href="#"><h2 style="color: white;">Crazy Kid Care</h2></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="course.html">Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contactus.html">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="logout.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+    <h1>About Us</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="main">
+                    <div class="service">
+                        <div class="service-logo">
+                            <img src="testimonial-3.jpg" alt="Service Logo">
+                        </div>
+                        <h4>Naveed Anjum</h4>
+                        <p>During the hiring process,every teacher participates in our Gallup Talent Assessment.it's our way
+                            of going the extra mile to make sure we are hiring the right folks for our programs.</p>
+                    </div>
+                    <div class="shadow1"></div>
+                    <div class="shadow2"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main">
+                    <div class="service">
+                        <div class="service-logo">
+                            <img src="testimonial-1.jpg" alt="Service Logo">
+                        </div>
+                        <h4>Meshra Gaowd</h4>
+                        <p>Families are invited to complete regular Gallup Family Engament surveys ti tell us how we are doing
+                            and how we can improve your entire Family's experience with us.</p>
+                    </div>
+                    <div class="shadow1"></div>
+                    <div class="shadow2"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main">
+                    <div class="service">
+                        <div class="service-logo">
+                            <img src="testimonial-2.jpg" alt="Service Logo">
+                        </div>
+                        <h4>Praney Awen</h4>
+                        <p>Our team completes a Gallup Employee Enagement survey every year.Its our 
+                            oppertunity to listen to each other and understand what makes the great.</p>
+                    </div>
+                    <div class="shadow1"></div>
+                    <div class="shadow2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!---------- About Us HTML Starts --------->
+    <div class="container-fluid">
+        <div class="row about-us">
+            <div class="col-md-6 image-column">
+                <img src="school.jpg" alt="Our School">
+            </div>
+            <div class="col-md-6 text-column">
+                <h2 class="heading-text">About our school</h2>
+                <strong> <hr> </strong>
+                <span class="heading-border"></span>
+                <p>The Learning DayCare is a progressive pre-school system that provides your child with modern education as per the British National curriculum incorporating the syllabus of CBSE and ICSE schools and learning of important characteristics of integrity and discipline that are ingrained within a broad canvas of social, moral and ethical values under one umbrella.</p>
+                <p>The most important development in a child is between the ages of one and five and this sense of self will probably stay with the child all his/her life. Our school creates an environment in which every child has an opportunity to develop varied talents. The child is encouraged to understand and master their environment, through experiences that are appropriate for his/her age and ability.</p>
+                <img src="sign.png" alt="Signature">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!---------- Footer HTML Starts --------->
+    <div class="footer-section">
+        <div class="container1">
+            <div class="footer-link">
+                <h2>My Global Campus</h2>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.</p>
+                <ul class="social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-link">
+                <h2>Featured Links</h2>
+                <ul class="footer-menu">
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Graduation</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Admission</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Courses</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> International</a></li>
+                </ul>
+            </div>
+            <div class="footer-link">
+                <h2>Contact Info</h2>
+                <ul class="footer-contact">
+                    <li><i class="fa fa-envelope-o"></i> <span>E-MAIL: <a href="mailto:info@dezven.com" style="color: #fff;">info@dezven.com</a></span></li>
+                    <li><i class="fa fa-whatsapp"></i> <span>WHATS-APP: +91 -123 456 789</span></li>
+                    <li><i class="fa fa-fax"></i> <span>CONTACT NO.: +91 -123 4567890</span></li>
+                    <li><i class="fa fa-globe"></i> <span>WEBSITE: <a href="https://www.dezven.com" style="color: #fff;">https://www.dezven.com</a></span></li>
+                </ul>
+            </div>
+            <div class="footer-link newsletter">
+                <h2>Newsletter</h2>
+                <p>Welcome To The Best Private University</p>
+                <input type="text" name="email" placeholder="E-mail">
+                <button>Subscribe Now</button>
+            </div>
+        </div>
+    </div>
+    <!---------- Footer HTML Ends ---------->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
