@@ -1,70 +1,99 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import About from "./About";
-import Courses from "./Courses";
-import "./style.css";
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import React from 'react'
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; 
+//  import Navbar from './Components/Nabar'
+ import Checkbmi from './Components/Checkbmi'
+ import Food from "./Components/Food"
+ import Movies from "./Components/Movies"
+ import News from './Components/News'
+import Contacts from './Components/Contacts'
+ import Products from './Components/Products'
+ import Weather from './Components/Weather'
+ import Home from "./Components/Home"
+ import Login from './Components/Login'
+import API from './Components/API'
+// import Footer from './Components/Footer'
+import pic from'./Components/images/mourilogo.jpg'
+import "./App.css"
+export default function App() {
 
-function App() {
   return (
-    <>
-      <BrowserRouter>
-        <div className="container-fluid Lk-back">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-              <a className="navbar-brand" href="#">Navbar</a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                  {/* Use Link instead of a */}
-                  <Link className="nav-link active" aria-current="page" to="/">
-                    Home
-                  </Link>
-                  <Link className="nav-link" to="/about">
-                    About
-                  </Link>
-                  <Link className="nav-link" to="/courses">
-                    Courses
-                  </Link>
-                  <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">
-                    Disabled
-                  </a>
-                </div>
-              </div>
-            </div>
-          </nav>
-          <div className="row">
-            <div className="col-md-4">left</div>
-            <div className="col-md-8">
-              <Routes>
-                <Route path="/about" element={<About />} />
-                <Route path="/courses" element={<Courses />} />
-              </Routes>
-            </div>
+    
+ <BrowserRouter>
+ <div  style={{height:'200px'}} className="nav container-fluid bg-secondary">
+    
+
+        <nav className="navbar navbar-expand-lg">
+        <Link to="/" className="nav-link active p-5 navbar-brand" id="nav-link"><img  className="logo" src={pic} alt='logo'/></Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            id="btn1"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li className="nav-link nav-item">
+                <Link to="/" className="active pr-5-" aria-current="page" id="logo">
+                  
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/Home" className="nav-link active p-5" aria-current="page" id="nav-link">
+                  Home
+                  {/* <img src={logo} alt="Logo" id="logomain" /> */}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/Checkbmi" className="nav-link active p-5" id="nav-link">
+                  CheckBMI
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/Login" className="nav-link active p-5" id="nav-link">
+                  Api's
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/Contacts" className="nav-link active p-5" id="nav-link">
+                  Contacts
+                </Link>
+              </li>
+            </ul>
+            <form className="d-flex" role="search">
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-outline-success" type="submit" id="btn2">Search</button>
+            </form>
           </div>
+        </nav>
+      </div>
+
+      <div className="container">
+        <div className="row">
+          <div className="col">
+ <Routes>
+          <Route path="/" element={<Home />}></Route> 
+          <Route path="/Home" element={<Home />}></Route>         
+           <Route path="/Weather" element={<Weather />}></Route>
+          <Route path="/News" element={<News />}></Route>
+          <Route path="/Food" element={<Food />}></Route>
+          <Route path="/Movies" element={<Movies />}></Route>
+          <Route path="/Products" element={<Products />}></Route>
+          <Route path="/Contacts" element={<Contacts/>}></Route>
+          <Route path="/Checkbmi" element={<Checkbmi />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/API" element={<API />}></Route>
+        </Routes>
         </div>
-
-        {/* Footer Section */}
-        <footer className="bg-light text-center text-lg-start mt-5">
-          <div className="text-center p-3" style={{ backgroundColor: "#f1f1f1" }}>
-            © 2024 Copyright: 
-            <a className="text-dark" href="mailto:copyright@gmail.com">
-              copyright@gmail.com
-            </a>
-          </div>
-        </footer>
+        </div>
+        </div>
       </BrowserRouter>
-    </>
-  );
-}
 
-export default App;
+      
+  )
+}
